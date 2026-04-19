@@ -1,0 +1,38 @@
+def get_performance_code(avg):
+    if avg < 40:
+        return 1
+    elif avg < 60:
+        return 2
+    elif avg < 80:
+        return 3
+    else:
+        return 4
+
+
+def get_performance_label(code):
+    if code == 1:
+        return "Fail"
+    elif code == 2:
+        return "Average"
+    elif code == 3:
+        return "Good"
+    elif code == 4:
+        return "Excellent"
+
+
+students = {
+    "Student A": [30, 35, 40],
+    "Student B": [45, 50, 55],
+    "Student C": [60, 65, 70],
+    "Student D": [80, 85, 90],
+    "Student E": [20, 30, 35],
+    "Student F": [90, 95, 85]
+}
+
+for name, marks in students.items():
+    total = sum(marks)
+    avg = total / len(marks)
+    code = get_performance_code(avg)
+    label = get_performance_label(code)
+
+    print(name, "is classified as", label, "based on performance.")
