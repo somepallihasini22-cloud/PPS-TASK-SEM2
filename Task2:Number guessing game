@@ -1,0 +1,50 @@
+import random
+
+print("----- Number Guessing Game -----")
+print("Select Difficulty Level:")
+print("1. Easy")
+print("2. Medium")
+print("3. Hard")
+
+choice = int(input("Enter your choice: "))
+
+if choice == 1:
+    low = 1
+    high = 10
+    attempts = 5
+elif choice == 2:
+    low = 1
+    high = 50
+    attempts = 7
+elif choice == 3:
+    low = 1
+    high = 100
+    attempts = 10
+else:
+    print("Invalid choice")
+    exit()
+
+number = random.randint(low, high)
+
+print("Guess the number between", low, "and", high)
+
+score = 100
+
+while attempts > 0:
+    print("Attempts left:", attempts)
+    guess = int(input("Enter your guess: "))
+
+    if guess == number:
+        print("Correct! You guessed the number.")
+        print("Your Score:", score)
+        break
+    elif guess < number:
+        print("Too low!")
+    else:
+        print("Too high!")
+
+    attempts -= 1
+    score -= 20
+
+if attempts == 0:
+    print("Game Over! The number was", number)
