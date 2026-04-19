@@ -1,0 +1,41 @@
+def get_traffic_code(vehicle_count):
+    if vehicle_count <= 10:
+        return 1
+    elif vehicle_count <= 30:
+        return 2
+    elif vehicle_count <= 60:
+        return 3
+    else:
+        return 4
+
+
+def get_signal_time(code):
+    if code == 1:
+        return 30
+    elif code == 2:
+        return 45
+    elif code == 3:
+        return 60
+    elif code == 4:
+        return 90
+
+
+def get_traffic_label(code):
+    if code == 1:
+        return "Low"
+    elif code == 2:
+        return "Medium"
+    elif code == 3:
+        return "High"
+    elif code == 4:
+        return "Very High"
+
+
+vehicle_counts = [5, 18, 35, 70, 10, 55]
+
+for count in vehicle_counts:
+    code = get_traffic_code(count)
+    time = get_signal_time(code)
+    label = get_traffic_label(code)
+
+    print("Traffic Level:", label, "| Vehicles:", count, "| Green Signal Time:", time, "seconds")
